@@ -1,0 +1,1482 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "main.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .section .text.XMC_GPIO_SetOutputHigh,"ax",%progbits
+  18              	 .align 2
+  19              	 .code 16
+  20              	 .thumb_func
+  22              	XMC_GPIO_SetOutputHigh:
+  23              	.LFB44:
+  24              	 .file 1 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc/xmc_gpio.h"
+   1:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+   2:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @file xmc_gpio.h
+   3:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @date 2015-06-20
+   4:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+   5:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @cond
+   6:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *****************************************************************************
+   7:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMClib v2.2.0 - XMC Peripheral Driver Library
+   8:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+   9:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Copyright (c) 2015-2020, Infineon Technologies AG
+  10:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * All rights reserved.
+  11:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  12:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Boost Software License - Version 1.0 - August 17th, 2003
+  13:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  14:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Permission is hereby granted, free of charge, to any person or organization
+  15:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * obtaining a copy of the software and accompanying documentation covered by
+  16:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * this license (the "Software") to use, reproduce, display, distribute,
+  17:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * execute, and transmit the Software, and to prepare derivative works of the
+  18:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Software, and to permit third-parties to whom the Software is furnished to
+  19:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * do so, all subject to the following:
+  20:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  21:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * The copyright notices in the Software and this entire statement, including
+  22:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * the above license grant, this restriction and the following disclaimer,
+  23:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * must be included in all copies of the Software, in whole or in part, and
+  24:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * all derivative works of the Software, unless such copies or derivative
+  25:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * works are solely in the form of machine-executable object code generated by
+  26:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * a source language processor.
+  27:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  28:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  29:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  30:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+  31:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+  32:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+  33:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  34:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * DEALINGS IN THE SOFTWARE.
+  35:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  36:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * To improve the quality of the software, users are encouraged to share
+  37:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * modifications, enhancements or bug fixes with Infineon Technologies AG
+  38:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * at XMCSupport@infineon.com.
+  39:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *****************************************************************************
+  40:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  41:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Change History
+  42:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * --------------
+  43:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  44:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * 2015-02-20:
+  45:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Initial draft<br>
+  46:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Documentation improved <br>
+  47:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  48:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * 2015-06-20:
+  49:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Removed version macros and declaration of GetDriverVersion API
+  50:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  51:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @endcond
+  52:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  53:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  54:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  55:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #ifndef XMC_GPIO_H
+  56:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_H
+  57:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  58:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+  59:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * HEADER FILES
+  60:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+  61:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  62:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc_common.h"
+  63:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  64:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+  65:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @addtogroup XMClib XMC Peripheral Library
+  66:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @{
+  67:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  68:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  69:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+  70:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @addtogroup GPIO
+  71:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @brief General Purpose Input Output (GPIO) driver for the XMC microcontroller family.
+  72:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  73:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * GPIO driver provide a generic and very flexible software interface for all standard digital I/O 
+  74:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Each port slice has individual interfaces for the operation as General Purpose I/O and it furthe
+  75:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * connectivity to the on-chip periphery and the control for the pad characteristics.
+  76:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  77:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * The driver is divided into Input and Output mode.
+  78:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  79:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Input mode features:
+  80:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Configuration structure XMC_GPIO_CONFIG_t and initialization function XMC_GPIO_Init()
+  81:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of weak pull-up or pull-down device. Configuration structure XMC_GPIO_MO
+  82:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC1
+  83:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of input hysteresis. XMC_GPIO_SetInputHysteresis()
+  84:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+  85:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  86:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  87:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Output mode features:
+  88:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of push pull/open drain and Alternate output. Configuration structure XM
+  89:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC4
+  90:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of pad driver strength. Configuration structure XMC_GPIO_OUTPUT_STRENGTH
+  91:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+  92:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  93:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of initial output level. Configuration structure XMC_GPIO_OUTPUT_LEVEL_t
+  94:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  95:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *@{
+  96:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  97:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  98:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+  99:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * MACROS
+ 100:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 101:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 102:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Pos PORT0_IOCR0_PC0_Pos
+ 103:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Msk PORT0_IOCR0_PC0_Msk
+ 104:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 105:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Size 				(8U)
+ 106:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 107:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 108:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_CHECK_OUTPUT_LEVEL(level) ((level == XMC_GPIO_OUTPUT_LEVEL_LOW) || \
+ 109:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****                                             (level == XMC_GPIO_OUTPUT_LEVEL_HIGH))
+ 110:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 111:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_CHECK_HWCTRL(hwctrl) ((hwctrl == XMC_GPIO_HWCTRL_DISABLED) || \
+ 112:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL1) || \
+ 113:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL2))
+ 114:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 115:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 116:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * ENUMS
+ 117:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 118:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 119:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 120:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 121:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Defines output level of a pin. Use type \a XMC_GPIO_OUTPUT_LEVEL_t for this enum.
+ 122:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 123:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** typedef enum XMC_GPIO_OUTPUT_LEVEL
+ 124:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 125:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_LOW  = 0x10000U, /**<  Reset bit */
+ 126:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_HIGH = 0x1U, 	/**< Set bit  */
+ 127:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** } XMC_GPIO_OUTPUT_LEVEL_t;
+ 128:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 129:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 130:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Defines direct hardware control characteristics of the pin . Use type \a XMC_GPIO_HWCTRL_t for t
+ 131:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 132:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** typedef enum XMC_GPIO_HWCTRL
+ 133:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 134:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_DISABLED     = 0x0U, /**<  Software control only */
+ 135:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL1  = 0x1U, /**<  HWI0/HWO0 control path can override the software confi
+ 136:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL2  = 0x2U  /**<  HWI1/HWO1 control path can override the software confi
+ 137:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** } XMC_GPIO_HWCTRL_t;
+ 138:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 139:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 140:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * DEVICE FAMILY EXTENSIONS
+ 141:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 142:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 143:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #if UC_FAMILY == XMC1
+ 144:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc1_gpio.h"
+ 145:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #elif UC_FAMILY == XMC4
+ 146:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc4_gpio.h"
+ 147:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #else
+ 148:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #error "xmc_gpio.h: family device not supported"
+ 149:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #endif
+ 150:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 151:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 152:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * API PROTOTYPES
+ 153:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 154:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 155:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #ifdef __cplusplus
+ 156:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** extern "C" {
+ 157:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** #endif
+ 158:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 159:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 160:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 161:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	  Constant pointer pointing to GPIO port, to access port registers like Pn_OUT,Pn_O
+ 162:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	  Port pin number.
+ 163:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  config GPIO configuration data structure. Refer data structure @ref XMC_GPIO_CONFIG_t fo
+ 164:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 165:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 166:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 167:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 168:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC1
+ 169:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,hysteresis, push pull
+ 170:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for a selected \a po
+ 171:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \a config provides selected I/O settings. It configures hardware registers Pn_IOCR,Pn_OUT, Pn_OM
+ 172:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+ 173:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC4
+ 174:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,push pull /open drain
+ 175:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for selected \a port
+ 176:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * It configures hardware registers Pn_IOCR,Pn_OUT,Pn_OMR,Pn_PDISC and Pn_PDR.\n
+ 177:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+ 178:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 179:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 180:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *  None
+ 181:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 182:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 183:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * This API is called in definition of DAVE_init by code generation and therefore should not be exp
+ 184:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * for the normal operation. Use other APIs only after DAVE_init is called successfully (returns DA
+ 185:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 186:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 187:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 188:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 189:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 190:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** void XMC_GPIO_Init(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_CONFIG_t *const c
+ 191:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 192:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 193:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 194:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	Constant pointer pointing to GPIO port, to access hardware register Pn_IOCR.
+ 195:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	Port pin number.
+ 196:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  mode input / output functionality selection. Refer @ref XMC_GPIO_MODE_t for valid values
+ 197:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 198:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 199:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 200:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 201:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Sets digital input and output driver functionality and characteristics of a GPIO port pin. It co
+ 202:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * registers Pn_IOCR. \a mode is initially configured during initialization in XMC_GPIO_Init(). Cal
+ 203:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * the port direction functionality as needed later in the program.
+ 204:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 205:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 206:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *  None
+ 207:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 208:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 209:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 210:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** void XMC_GPIO_SetMode(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_MODE_t mode);
+ 211:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 212:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 213:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 214:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 215:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	 Constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 216:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	 Port pin number.
+ 217:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  level output level selection. Refer @ref XMC_GPIO_OUTPUT_LEVEL_t for valid values.
+ 218:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 219:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 220:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 221:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 222:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Set port pin output level to high or low.It configures hardware registers Pn_OMR.\a level is ini
+ 223:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * configured during initialization in XMC_GPIO_Init(). Call this API to alter output level as need
+ 224:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 225:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 226:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *  XMC_GPIO_SetOutputHigh(), XMC_GPIO_SetOutputLow().
+ 227:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 228:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 229:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 230:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 231:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 232:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 233:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 234:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLevel(XMC_GPIO_PORT_t *const port, const uint8_t pin, const 
+ 235:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 236:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 237:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid output level", XMC_GPIO_CHECK_OUTPUT_LEVEL(level));
+ 238:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 239:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = (uint32_t)level << pin;
+ 240:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 241:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 242:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 243:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 244:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 245:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	Port pin number.
+ 246:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 247:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 248:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 249:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 250:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *  Sets port pin output to high. It configures hardware registers Pn_OMR.
+ 251:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 252:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *  \par<b>Related APIs:</b><BR>
+ 253:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *  XMC_GPIO_SetOutputLow()
+ 254:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 255:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 256:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().\n
+ 257:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 258:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 259:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 260:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 261:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputHigh(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 262:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** {
+  25              	 .loc 1 262 0
+  26              	 .cfi_startproc
+  27 0000 80B5     	 push {r7,lr}
+  28              	.LCFI0:
+  29              	 .cfi_def_cfa_offset 8
+  30              	 .cfi_offset 7,-8
+  31              	 .cfi_offset 14,-4
+  32 0002 82B0     	 sub sp,sp,#8
+  33              	.LCFI1:
+  34              	 .cfi_def_cfa_offset 16
+  35 0004 00AF     	 add r7,sp,#0
+  36              	.LCFI2:
+  37              	 .cfi_def_cfa_register 7
+  38 0006 7860     	 str r0,[r7,#4]
+  39 0008 0A1C     	 mov r2,r1
+  40 000a FB1C     	 add r3,r7,#3
+  41 000c 1A70     	 strb r2,[r3]
+ 263:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputHigh: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 264:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 265:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = (uint32_t)0x1U << pin;
+  42              	 .loc 1 265 0
+  43 000e FB1C     	 add r3,r7,#3
+  44 0010 1B78     	 ldrb r3,[r3]
+  45 0012 0122     	 mov r2,#1
+  46 0014 9A40     	 lsl r2,r2,r3
+  47 0016 7B68     	 ldr r3,[r7,#4]
+  48 0018 5A60     	 str r2,[r3,#4]
+ 266:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** }
+  49              	 .loc 1 266 0
+  50 001a BD46     	 mov sp,r7
+  51 001c 02B0     	 add sp,sp,#8
+  52              	 
+  53 001e 80BD     	 pop {r7,pc}
+  54              	 .cfi_endproc
+  55              	.LFE44:
+  57              	 .section .text.XMC_GPIO_ToggleOutput,"ax",%progbits
+  58              	 .align 2
+  59              	 .code 16
+  60              	 .thumb_func
+  62              	XMC_GPIO_ToggleOutput:
+  63              	.LFB46:
+ 267:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 268:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 269:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 270:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 271:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	port pin number.
+ 272:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 273:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return  None
+ 274:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 275:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Description:</b><br>
+ 276:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Sets port pin output to low. It configures hardware registers Pn_OMR.\n
+ 277:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 278:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>>
+ 279:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMC_GPIO_SetOutputHigh()
+ 280:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 281:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Note:</b><br>
+ 282:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 283:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 284:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 285:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 286:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 287:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLow(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 288:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 289:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLow: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 290:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 291:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = 0x10000U << pin;
+ 292:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 293:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 294:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 295:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 296:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param port constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 297:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param pin  port pin number.
+ 298:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 299:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 300:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 301:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 302:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Configures port pin output to Toggle. It configures hardware registers Pn_OMR.
+ 303:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 304:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 305:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMC_GPIO_SetOutputHigh(), XMC_GPIO_SetOutputLow().
+ 306:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 307:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 308:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode(). Regis
+ 309:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * and does not contain any flip-flop. A read action delivers the value of 0.
+ 310:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 311:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 312:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 313:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_ToggleOutput(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 314:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** {
+  64              	 .loc 1 314 0
+  65              	 .cfi_startproc
+  66 0000 80B5     	 push {r7,lr}
+  67              	.LCFI3:
+  68              	 .cfi_def_cfa_offset 8
+  69              	 .cfi_offset 7,-8
+  70              	 .cfi_offset 14,-4
+  71 0002 82B0     	 sub sp,sp,#8
+  72              	.LCFI4:
+  73              	 .cfi_def_cfa_offset 16
+  74 0004 00AF     	 add r7,sp,#0
+  75              	.LCFI5:
+  76              	 .cfi_def_cfa_register 7
+  77 0006 7860     	 str r0,[r7,#4]
+  78 0008 0A1C     	 mov r2,r1
+  79 000a FB1C     	 add r3,r7,#3
+  80 000c 1A70     	 strb r2,[r3]
+ 315:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_ToggleOutput: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 316:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 317:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = 0x10001U << pin;
+  81              	 .loc 1 317 0
+  82 000e FB1C     	 add r3,r7,#3
+  83 0010 1B78     	 ldrb r3,[r3]
+  84 0012 034A     	 ldr r2,.L3
+  85 0014 9A40     	 lsl r2,r2,r3
+  86 0016 7B68     	 ldr r3,[r7,#4]
+  87 0018 5A60     	 str r2,[r3,#4]
+ 318:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** }
+  88              	 .loc 1 318 0
+  89 001a BD46     	 mov sp,r7
+  90 001c 02B0     	 add sp,sp,#8
+  91              	 
+  92 001e 80BD     	 pop {r7,pc}
+  93              	.L4:
+  94              	 .align 2
+  95              	.L3:
+  96 0020 01000100 	 .word 65537
+  97              	 .cfi_endproc
+  98              	.LFE46:
+ 100              	 .section .text.XMC_GPIO_GetInput,"ax",%progbits
+ 101              	 .align 2
+ 102              	 .code 16
+ 103              	 .thumb_func
+ 105              	XMC_GPIO_GetInput:
+ 106              	.LFB47:
+ 319:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 320:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 321:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 322:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param port constant pointer pointing to GPIO port, to access hardware register Pn_IN.
+ 323:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param pin  Port pin number.
+ 324:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 325:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return uint32_t pin logic level status.
+ 326:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 327:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Description:</b><br>
+ 328:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Reads the Pn_IN register and returns the current logical value at the GPIO pin.
+ 329:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 330:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 331:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * None
+ 332:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 333:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 334:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to input mode using XMC_GPIO_SetMode().
+ 335:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 336:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 337:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 338:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE uint32_t XMC_GPIO_GetInput(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 339:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 107              	 .loc 1 339 0
+ 108              	 .cfi_startproc
+ 109 0000 80B5     	 push {r7,lr}
+ 110              	.LCFI6:
+ 111              	 .cfi_def_cfa_offset 8
+ 112              	 .cfi_offset 7,-8
+ 113              	 .cfi_offset 14,-4
+ 114 0002 82B0     	 sub sp,sp,#8
+ 115              	.LCFI7:
+ 116              	 .cfi_def_cfa_offset 16
+ 117 0004 00AF     	 add r7,sp,#0
+ 118              	.LCFI8:
+ 119              	 .cfi_def_cfa_register 7
+ 120 0006 7860     	 str r0,[r7,#4]
+ 121 0008 0A1C     	 mov r2,r1
+ 122 000a FB1C     	 add r3,r7,#3
+ 123 000c 1A70     	 strb r2,[r3]
+ 340:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_GetInput: Invalid port", XMC_GPIO_CHECK_PORT(port));
+ 341:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 342:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h ****   return (((port->IN) >> pin) & 0x1U);
+ 124              	 .loc 1 342 0
+ 125 000e 7B68     	 ldr r3,[r7,#4]
+ 126 0010 5A6A     	 ldr r2,[r3,#36]
+ 127 0012 FB1C     	 add r3,r7,#3
+ 128 0014 1B78     	 ldrb r3,[r3]
+ 129 0016 DA40     	 lsr r2,r2,r3
+ 130 0018 131C     	 mov r3,r2
+ 131 001a 0122     	 mov r2,#1
+ 132 001c 1340     	 and r3,r2
+ 343:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 133              	 .loc 1 343 0
+ 134 001e 181C     	 mov r0,r3
+ 135 0020 BD46     	 mov sp,r7
+ 136 0022 02B0     	 add sp,sp,#8
+ 137              	 
+ 138 0024 80BD     	 pop {r7,pc}
+ 139              	 .cfi_endproc
+ 140              	.LFE47:
+ 142 0026 C046     	 .section .text.DIGITAL_IO_SetOutputHigh,"ax",%progbits
+ 143              	 .align 2
+ 144              	 .code 16
+ 145              	 .thumb_func
+ 147              	DIGITAL_IO_SetOutputHigh:
+ 148              	.LFB52:
+ 149              	 .file 2 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO/digital_io.h"
+   1:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /*
+   2:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+   3:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @file digital_io.h
+   4:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @date 2021-01-08
+   5:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+   6:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * NOTE:
+   7:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * This file is generated by DAVE. Any manual modification done to this file will be lost when the 
+   8:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+   9:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @cond
+  10:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  11:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * DIGITAL_IO v4.0.18 - The DIGITAL_IO APP is used to configure a port pin as digital Input/Output.
+  12:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  13:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * Copyright (c) 2015-2020, Infineon Technologies AG
+  14:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * All rights reserved.
+  15:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  16:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  17:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * following conditions are met:
+  18:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  19:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   Redistributions of source code must retain the above copyright notice, this list of conditions
+  20:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   disclaimer.
+  21:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  22:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   Redistributions in binary form must reproduce the above copyright notice, this list of conditi
+  23:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   following disclaimer in the documentation and/or other materials provided with the distributio
+  24:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  25:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   Neither the name of the copyright holders nor the names of its contributors may be used to end
+  26:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   products derived from this software without specific prior written permission.
+  27:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  28:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  29:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  30:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  31:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  32:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  33:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  34:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  35:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  36:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  37:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * with Infineon Technologies AG (dave@infineon.com).
+  38:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  39:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  40:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * Change History
+  41:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * --------------
+  42:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  43:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-02-16
+  44:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Initial version
+  45:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  46:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-04-22
+  47:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - XMC_ASSERT is added in static inline functions.<br>
+  48:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  49:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-06-20
+  50:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Version check added for XMCLib dependency.<br>
+  51:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  52:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-12-22
+  53:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Added hardware controlled IO feature.
+  54:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2016-07-08:
+  55:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Fixed incorrect case for an included header.<br>
+  56:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2021-01-08:
+  57:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Modified check for minimum XMCLib version
+  58:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  59:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @endcond
+  60:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  61:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  */
+  62:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  63:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+  64:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * HEADER FILES
+  65:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  66:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  67:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #ifndef DIGITAL_IO_H
+  68:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_H
+  69:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  70:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #include "xmc_gpio.h"
+  71:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #include "DAVE_Common.h"
+  72:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #include "digital_io_conf.h"
+  73:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  74:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+  75:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * MACROS
+  76:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  77:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_XMC_LIB_MAJOR_VERSION 2
+  78:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_XMC_LIB_MINOR_VERSION 0
+  79:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_XMC_LIB_PATCH_VERSION 0
+  80:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  81:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #if !((XMC_LIB_MAJOR_VERSION > DIGITAL_IO_XMC_LIB_MAJOR_VERSION) ||\
+  82:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****       ((XMC_LIB_MAJOR_VERSION == DIGITAL_IO_XMC_LIB_MAJOR_VERSION) && (XMC_LIB_MINOR_VERSION > DIGI
+  83:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****       ((XMC_LIB_MAJOR_VERSION == DIGITAL_IO_XMC_LIB_MAJOR_VERSION) && (XMC_LIB_MINOR_VERSION == DIG
+  84:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #error "DIGITAL_IO requires XMC Peripheral Library v2.0.0 or higher"
+  85:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #endif
+  86:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  87:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  /*************************************************************************************************
+  88:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * ENUMS
+  89:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  90:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  91:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+  92:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @ingroup DIGITAL_IO_enumerations
+  93:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @{
+  94:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+  95:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  96:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+  97:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Initialization status of DIGITAL_IO APP.
+  98:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+  99:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** typedef enum DIGITAL_IO_STATUS
+ 100:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 101:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   DIGITAL_IO_STATUS_OK = 0U,/**< 0=Status OK */
+ 102:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   DIGITAL_IO_STATUS_FAILURE = 1U/**< 1=Status Failed */
+ 103:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** } DIGITAL_IO_STATUS_t;
+ 104:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 105:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 106:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @}
+ 107:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 108:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 109:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+ 110:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * DATA STRUCTURES
+ 111:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+ 112:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 113:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @ingroup DIGITAL_IO_datastructures
+ 114:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @{
+ 115:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 116:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 117:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 118:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Initialization data structure of DIGITAL_IO APP
+ 119:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 120:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** typedef struct DIGITAL_IO
+ 121:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 122:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_PORT_t *const gpio_port;             /**< port number */
+ 123:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   const XMC_GPIO_CONFIG_t gpio_config;          /**< mode, initial output level and pad driver stre
+ 124:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   const uint8_t gpio_pin;                       /**< pin number */
+ 125:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   const XMC_GPIO_HWCTRL_t hwctrl;               /**< Hardware port control */
+ 126:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** } DIGITAL_IO_t;
+ 127:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 128:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 129:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 130:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @}
+ 131:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 132:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 133:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 134:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+ 135:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  * API Prototypes
+ 136:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+ 137:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 138:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 139:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #ifdef __cplusplus
+ 140:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** extern "C" {
+ 141:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** #endif
+ 142:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 143:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 144:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @ingroup DIGITAL_IO_apidoc
+ 145:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @{
+ 146:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 147:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 148:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 149:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 150:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 151:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Get DIGITAL_IO APP version
+ 152:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return DAVE_APP_VERSION_t APP version information (major, minor and patch number)
+ 153:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 154:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description: </b><br>
+ 155:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * The function can be used to check application software compatibility with a
+ 156:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * specific version of the APP.
+ 157:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 158:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 159:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 160:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 161:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h"
+ 162:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 163:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 164:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 165:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t init_status;
+ 166:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_APP_VERSION_t version;
+ 167:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 168:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   // Initialize DIGITAL_IO APP:
+ 169:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   // DIGITAL_IO_Init() is called from within DAVE_Init().
+ 170:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   init_status = DAVE_Init();
+ 171:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(init_status == DAVE_STATUS_SUCCESS)
+ 172:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 173:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     version = DIGITAL_IO_GetAppVersion();
+ 174:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     if (version.major != 4U) {
+ 175:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     // Probably, not the right version.
+ 176:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 177:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 178:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 179:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     // More code here
+ 180:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1) {
+ 181:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 182:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 183:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     return (1);
+ 184:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  }
+ 185:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @endcode<BR>
+ 186:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 187:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 188:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** DAVE_APP_VERSION_t DIGITAL_IO_GetAppVersion(void);
+ 189:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 190:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 191:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 192:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to initialize the port pin as per UI settings.
+ 193:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 194:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return DIGITAL_IO_STATUS_t DIGITAL_IO APP status. Refer @ref DIGITAL_IO_STATUS_t structure for d
+ 195:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 196:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 197:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function initializes GPIO port registers IOCR,PDISC,OMR,PDR/PHCR to configure pin direction,
+ 198:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * and pad driver strength/hysteresis.
+ 199:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 200:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 201:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * None
+ 202:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 203:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 204:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 205:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 206:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 207:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 208:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 209:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 210:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_In
+ 211:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 212:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 213:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 214:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 215:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 216:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 217:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 218:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1U)
+ 219:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 220:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 221:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 222:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 223:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 224:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 225:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 226:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return 1U;
+ 227:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  }
+ 228:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 229:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 230:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 231:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** DIGITAL_IO_STATUS_t DIGITAL_IO_Init(const DIGITAL_IO_t *const handler);
+ 232:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 233:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 234:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 235:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to set port pin high.
+ 236:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 237:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return None
+ 238:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 239:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 240:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function configures port output modification register Pn_OMR, to make port pin to high level
+ 241:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 242:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 243:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  DIGITAL_IO_SetOutputLow()
+ 244:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 245:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 246:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 247:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 248:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 249:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 250:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 251:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 252:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_In
+ 253:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 254:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 255:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 256:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 257:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 258:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 259:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 260:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1U)
+ 261:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 262:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 263:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 264:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 265:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DIGITAL_IO_SetOutputHigh(&DIGITAL_IO_0);
+ 266:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 267:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 268:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     // Add application code here
+ 269:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 270:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 271:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 272:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 273:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 274:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 275:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 276:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE void DIGITAL_IO_SetOutputHigh(const DIGITAL_IO_t *const handler)
+ 277:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 150              	 .loc 2 277 0
+ 151              	 .cfi_startproc
+ 152 0000 80B5     	 push {r7,lr}
+ 153              	.LCFI9:
+ 154              	 .cfi_def_cfa_offset 8
+ 155              	 .cfi_offset 7,-8
+ 156              	 .cfi_offset 14,-4
+ 157 0002 82B0     	 sub sp,sp,#8
+ 158              	.LCFI10:
+ 159              	 .cfi_def_cfa_offset 16
+ 160 0004 00AF     	 add r7,sp,#0
+ 161              	.LCFI11:
+ 162              	 .cfi_def_cfa_register 7
+ 163 0006 7860     	 str r0,[r7,#4]
+ 278:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_SetOutputHigh: handler null pointer", handler != NULL);
+ 279:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_SetOutputHigh(handler->gpio_port, handler->gpio_pin);
+ 164              	 .loc 2 279 0
+ 165 0008 7B68     	 ldr r3,[r7,#4]
+ 166 000a 1A68     	 ldr r2,[r3]
+ 167 000c 7B68     	 ldr r3,[r7,#4]
+ 168 000e 1B7B     	 ldrb r3,[r3,#12]
+ 169 0010 101C     	 mov r0,r2
+ 170 0012 191C     	 mov r1,r3
+ 171 0014 FFF7FEFF 	 bl XMC_GPIO_SetOutputHigh
+ 280:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 172              	 .loc 2 280 0
+ 173 0018 BD46     	 mov sp,r7
+ 174 001a 02B0     	 add sp,sp,#8
+ 175              	 
+ 176 001c 80BD     	 pop {r7,pc}
+ 177              	 .cfi_endproc
+ 178              	.LFE52:
+ 180 001e C046     	 .section .text.DIGITAL_IO_ToggleOutput,"ax",%progbits
+ 181              	 .align 2
+ 182              	 .code 16
+ 183              	 .thumb_func
+ 185              	DIGITAL_IO_ToggleOutput:
+ 186              	.LFB54:
+ 281:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 282:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 283:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to reset port pin.
+ 284:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 285:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return None
+ 286:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 287:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 288:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function configures port output modification register Pn_OMR, to make port pin to low level.
+ 289:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 290:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 291:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * DIGITAL_IO_SetOutputHigh()
+ 292:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 293:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 294:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 295:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 296:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 297:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  int main(void)
+ 298:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  {
+ 299:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    DAVE_STATUS_t status;
+ 300:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_I
+ 301:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    if(status == DAVE_STATUS_SUCCESS)
+ 302:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    {
+ 303:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      XMC_DEBUG("DAVE Apps initialization success\n");
+ 304:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    }
+ 305:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    else
+ 306:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    {
+ 307:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 308:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      while(1U)
+ 309:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      {
+ 310:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      }
+ 311:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    }
+ 312:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    //Placeholder for user application code. The while loop below can be replaced with user applic
+ 313:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    DIGITAL_IO_SetOutputLow(&DIGITAL_IO_0);
+ 314:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    while(1U)
+ 315:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    {
+ 316:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      // Add application code here
+ 317:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *    }
+ 318:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 319:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 320:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 321:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 322:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 323:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 324:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE void DIGITAL_IO_SetOutputLow(const DIGITAL_IO_t *const handler)
+ 325:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 326:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_SetOutputLow: handler null pointer", handler != NULL);
+ 327:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_SetOutputLow(handler->gpio_port,handler->gpio_pin);
+ 328:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 329:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 330:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 331:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to Toggle port pin.
+ 332:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 333:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return None
+ 334:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 335:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 336:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function configures port output modification register Pn_OMR, to toggle port pin.
+ 337:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 338:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 339:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * DIGITAL_IO_SetOutputLow(), DIGITAL_IO_SetOutputHigh()
+ 340:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 341:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 342:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 343:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 344:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 345:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 346:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 347:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 348:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 349:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   uint32_t delay_count;;
+ 350:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_In
+ 351:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 352:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 353:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 354:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 355:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 356:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 357:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 358:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      while(1U)
+ 359:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      {
+ 360:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      }
+ 361:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 362:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 363:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 364:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 365:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      DIGITAL_IO_ToggleOutput(&DIGITAL_IO_0); //toggles : 1 -> 0 (if initial output level is logic
+ 366:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      //Add application code here
+ 367:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      for(delay_count = 0;delay_count<0xfffff;delay_count++);
+ 368:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      DIGITAL_IO_ToggleOutput(&DIGITAL_IO_0); //toggles : 0 -> 1
+ 369:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      //Add application code here
+ 370:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *      for(delay_count = 0;delay_count<0xfffff;delay_count++);
+ 371:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 372:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 373:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 374:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 375:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 376:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 377:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE void DIGITAL_IO_ToggleOutput(const DIGITAL_IO_t *const handler)
+ 378:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 187              	 .loc 2 378 0
+ 188              	 .cfi_startproc
+ 189 0000 80B5     	 push {r7,lr}
+ 190              	.LCFI12:
+ 191              	 .cfi_def_cfa_offset 8
+ 192              	 .cfi_offset 7,-8
+ 193              	 .cfi_offset 14,-4
+ 194 0002 82B0     	 sub sp,sp,#8
+ 195              	.LCFI13:
+ 196              	 .cfi_def_cfa_offset 16
+ 197 0004 00AF     	 add r7,sp,#0
+ 198              	.LCFI14:
+ 199              	 .cfi_def_cfa_register 7
+ 200 0006 7860     	 str r0,[r7,#4]
+ 379:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_ToggleOutput: handler null pointer", handler != NULL);
+ 380:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_ToggleOutput(handler->gpio_port, handler->gpio_pin);
+ 201              	 .loc 2 380 0
+ 202 0008 7B68     	 ldr r3,[r7,#4]
+ 203 000a 1A68     	 ldr r2,[r3]
+ 204 000c 7B68     	 ldr r3,[r7,#4]
+ 205 000e 1B7B     	 ldrb r3,[r3,#12]
+ 206 0010 101C     	 mov r0,r2
+ 207 0012 191C     	 mov r1,r3
+ 208 0014 FFF7FEFF 	 bl XMC_GPIO_ToggleOutput
+ 381:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 209              	 .loc 2 381 0
+ 210 0018 BD46     	 mov sp,r7
+ 211 001a 02B0     	 add sp,sp,#8
+ 212              	 
+ 213 001c 80BD     	 pop {r7,pc}
+ 214              	 .cfi_endproc
+ 215              	.LFE54:
+ 217 001e C046     	 .section .text.DIGITAL_IO_GetInput,"ax",%progbits
+ 218              	 .align 2
+ 219              	 .code 16
+ 220              	 .thumb_func
+ 222              	DIGITAL_IO_GetInput:
+ 223              	.LFB55:
+ 382:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 383:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 384:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to read input level of port pin.
+ 385:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 386:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return uint32_t input logic level. Range:0-1
+ 387:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 388:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 389:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function reads the Pn_IN register and returns the current logical value at the GPIO pin.
+ 390:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 391:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 392:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  None
+ 393:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 394:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 395:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 396:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 397:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 398:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 399:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 400:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 401:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   uint32_t pin_status;
+ 402:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();   // (DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_
+ 403:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 404:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 405:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 406:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 407:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 408:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 409:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 410:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1U)
+ 411:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 412:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 413:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 414:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 415:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 416:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 417:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     pin_status = DIGITAL_IO_GetInput(&DIGITAL_IO_0);
+ 418:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     if(pin_status == 1)
+ 419:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 420:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *       // Add application code here
+ 421:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 422:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     else
+ 423:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 424:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *       // Add application code here
+ 425:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 426:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 427:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 428:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 429:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 430:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 431:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 432:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE uint32_t DIGITAL_IO_GetInput(const DIGITAL_IO_t *const handler)
+ 433:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 224              	 .loc 2 433 0
+ 225              	 .cfi_startproc
+ 226 0000 80B5     	 push {r7,lr}
+ 227              	.LCFI15:
+ 228              	 .cfi_def_cfa_offset 8
+ 229              	 .cfi_offset 7,-8
+ 230              	 .cfi_offset 14,-4
+ 231 0002 82B0     	 sub sp,sp,#8
+ 232              	.LCFI16:
+ 233              	 .cfi_def_cfa_offset 16
+ 234 0004 00AF     	 add r7,sp,#0
+ 235              	.LCFI17:
+ 236              	 .cfi_def_cfa_register 7
+ 237 0006 7860     	 str r0,[r7,#4]
+ 434:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_GetInput: handler null pointer", handler != NULL);
+ 435:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h ****   return XMC_GPIO_GetInput(handler->gpio_port, handler->gpio_pin);
+ 238              	 .loc 2 435 0
+ 239 0008 7B68     	 ldr r3,[r7,#4]
+ 240 000a 1A68     	 ldr r2,[r3]
+ 241 000c 7B68     	 ldr r3,[r7,#4]
+ 242 000e 1B7B     	 ldrb r3,[r3,#12]
+ 243 0010 101C     	 mov r0,r2
+ 244 0012 191C     	 mov r1,r3
+ 245 0014 FFF7FEFF 	 bl XMC_GPIO_GetInput
+ 246 0018 031C     	 mov r3,r0
+ 436:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 247              	 .loc 2 436 0
+ 248 001a 181C     	 mov r0,r3
+ 249 001c BD46     	 mov sp,r7
+ 250 001e 02B0     	 add sp,sp,#8
+ 251              	 
+ 252 0020 80BD     	 pop {r7,pc}
+ 253              	 .cfi_endproc
+ 254              	.LFE55:
+ 256              	 .global ledMode
+ 257 0022 C046     	 .section .bss.ledMode,"aw",%nobits
+ 260              	ledMode:
+ 261 0000 00       	 .space 1
+ 262              	 .global buttonState
+ 263              	 .section .bss.buttonState,"aw",%nobits
+ 266              	buttonState:
+ 267 0000 00       	 .space 1
+ 268              	 .global count
+ 269              	 .section .bss.count,"aw",%nobits
+ 272              	count:
+ 273 0000 00       	 .space 1
+ 274              	 .global count1
+ 275              	 .section .bss.count1,"aw",%nobits
+ 278              	count1:
+ 279 0000 00       	 .space 1
+ 280              	 .section .text.changeLEDMode,"ax",%progbits
+ 281              	 .align 2
+ 282              	 .global changeLEDMode
+ 283              	 .code 16
+ 284              	 .thumb_func
+ 286              	changeLEDMode:
+ 287              	.LFB134:
+ 288              	 .file 3 "../main.c"
+   1:../main.c     **** #include <DAVE.h>
+   2:../main.c     **** #include <xmc_gpio.h>
+   3:../main.c     **** //#define LED_PIN P1_0
+   4:../main.c     **** //#define BUTTON_PIN P1_1
+   5:../main.c     **** 
+   6:../main.c     **** uint8_t ledMode = 0; // Variable to store the current LED mode
+   7:../main.c     **** uint8_t buttonState = 0; // Variable to store the previous state of the pushbutton
+   8:../main.c     **** uint8_t count = 0;
+   9:../main.c     **** uint8_t count1 = 0;
+  10:../main.c     **** 
+  11:../main.c     **** void changeLEDMode(void)
+  12:../main.c     **** {
+ 289              	 .loc 3 12 0
+ 290              	 .cfi_startproc
+ 291 0000 80B5     	 push {r7,lr}
+ 292              	.LCFI18:
+ 293              	 .cfi_def_cfa_offset 8
+ 294              	 .cfi_offset 7,-8
+ 295              	 .cfi_offset 14,-4
+ 296 0002 00AF     	 add r7,sp,#0
+ 297              	.LCFI19:
+ 298              	 .cfi_def_cfa_register 7
+  13:../main.c     ****   // Increment the LED mode
+  14:../main.c     **** 
+  15:../main.c     **** 
+  16:../main.c     **** }
+ 299              	 .loc 3 16 0
+ 300 0004 BD46     	 mov sp,r7
+ 301              	 
+ 302 0006 80BD     	 pop {r7,pc}
+ 303              	 .cfi_endproc
+ 304              	.LFE134:
+ 306              	 .section .text.main,"ax",%progbits
+ 307              	 .align 2
+ 308              	 .global main
+ 309              	 .code 16
+ 310              	 .thumb_func
+ 312              	main:
+ 313              	.LFB135:
+  17:../main.c     **** 
+  18:../main.c     **** int main(void)
+  19:../main.c     **** {
+ 314              	 .loc 3 19 0
+ 315              	 .cfi_startproc
+ 316 0000 90B5     	 push {r4,r7,lr}
+ 317              	.LCFI20:
+ 318              	 .cfi_def_cfa_offset 12
+ 319              	 .cfi_offset 4,-12
+ 320              	 .cfi_offset 7,-8
+ 321              	 .cfi_offset 14,-4
+ 322 0002 83B0     	 sub sp,sp,#12
+ 323              	.LCFI21:
+ 324              	 .cfi_def_cfa_offset 24
+ 325 0004 00AF     	 add r7,sp,#0
+ 326              	.LCFI22:
+ 327              	 .cfi_def_cfa_register 7
+  20:../main.c     ****   DAVE_STATUS_t status;
+  21:../main.c     **** 
+  22:../main.c     ****   // Initialization of DAVE apps
+  23:../main.c     ****    status = DAVE_Init();
+ 328              	 .loc 3 23 0
+ 329 0006 FC1D     	 add r4,r7,#7
+ 330 0008 FFF7FEFF 	 bl DAVE_Init
+ 331 000c 031C     	 mov r3,r0
+ 332 000e 2370     	 strb r3,[r4]
+  24:../main.c     **** 
+  25:../main.c     ****   // Check if DAVE initialization is successful
+  26:../main.c     ****   if (status != DAVE_STATUS_SUCCESS)
+ 333              	 .loc 3 26 0
+ 334 0010 FB1D     	 add r3,r7,#7
+ 335 0012 1B78     	 ldrb r3,[r3]
+ 336 0014 002B     	 cmp r3,#0
+ 337 0016 00D0     	 beq .L13
+ 338              	.L14:
+  27:../main.c     ****   {
+  28:../main.c     ****     // Handle error
+  29:../main.c     ****     while(1);
+ 339              	 .loc 3 29 0 discriminator 1
+ 340 0018 FEE7     	 b .L14
+ 341              	.L13:
+  30:../main.c     ****   }
+  31:../main.c     **** 
+  32:../main.c     ****   // Infinite loop
+  33:../main.c     ****   while(1)
+  34:../main.c     ****   {
+  35:../main.c     **** 
+  36:../main.c     ****     // Read the current state of the pushbutton
+  37:../main.c     ****     buttonState = DIGITAL_IO_GetInput(&DIGITAL_IO_2);
+ 342              	 .loc 3 37 0
+ 343 001a 254B     	 ldr r3,.L23
+ 344 001c 181C     	 mov r0,r3
+ 345 001e FFF7FEFF 	 bl DIGITAL_IO_GetInput
+ 346 0022 031C     	 mov r3,r0
+ 347 0024 DAB2     	 uxtb r2,r3
+ 348 0026 234B     	 ldr r3,.L23+4
+ 349 0028 1A70     	 strb r2,[r3]
+  38:../main.c     **** 
+  39:../main.c     **** 
+  40:../main.c     ****     // Check if the pushbutton is pressed (active low)
+  41:../main.c     ****     if (buttonState == 0)
+ 350              	 .loc 3 41 0
+ 351 002a 224B     	 ldr r3,.L23+4
+ 352 002c 1B78     	 ldrb r3,[r3]
+ 353 002e 002B     	 cmp r3,#0
+ 354 0030 16D1     	 bne .L15
+ 355              	.LBB2:
+  42:../main.c     ****     {
+  43:../main.c     ****     //  changeLEDMode();
+  44:../main.c     **** 
+  45:../main.c     ****     	for (volatile uint32_t i = 0; i < 999999; i++);
+ 356              	 .loc 3 45 0
+ 357 0032 0023     	 mov r3,#0
+ 358 0034 3B60     	 str r3,[r7]
+ 359 0036 02E0     	 b .L16
+ 360              	.L17:
+ 361              	 .loc 3 45 0 is_stmt 0 discriminator 3
+ 362 0038 3B68     	 ldr r3,[r7]
+ 363 003a 0133     	 add r3,r3,#1
+ 364 003c 3B60     	 str r3,[r7]
+ 365              	.L16:
+ 366              	 .loc 3 45 0 discriminator 1
+ 367 003e 3B68     	 ldr r3,[r7]
+ 368 0040 1D4A     	 ldr r2,.L23+8
+ 369 0042 9342     	 cmp r3,r2
+ 370 0044 F8D9     	 bls .L17
+ 371              	.LBE2:
+  46:../main.c     ****     	 ledMode++;
+ 372              	 .loc 3 46 0 is_stmt 1
+ 373 0046 1D4B     	 ldr r3,.L23+12
+ 374 0048 1B78     	 ldrb r3,[r3]
+ 375 004a 0133     	 add r3,r3,#1
+ 376 004c DAB2     	 uxtb r2,r3
+ 377 004e 1B4B     	 ldr r3,.L23+12
+ 378 0050 1A70     	 strb r2,[r3]
+  47:../main.c     **** 
+  48:../main.c     ****     	  if (ledMode > 2)
+ 379              	 .loc 3 48 0
+ 380 0052 1A4B     	 ldr r3,.L23+12
+ 381 0054 1B78     	 ldrb r3,[r3]
+ 382 0056 022B     	 cmp r3,#2
+ 383 0058 02D9     	 bls .L15
+  49:../main.c     ****     	  {
+  50:../main.c     ****     	    ledMode = 0;
+ 384              	 .loc 3 50 0
+ 385 005a 184B     	 ldr r3,.L23+12
+ 386 005c 0022     	 mov r2,#0
+ 387 005e 1A70     	 strb r2,[r3]
+ 388              	.L15:
+  51:../main.c     ****     	  }
+  52:../main.c     ****     }
+  53:../main.c     ****     	  // Update the LED based on the new mode
+  54:../main.c     ****     	  switch (ledMode)
+ 389              	 .loc 3 54 0
+ 390 0060 164B     	 ldr r3,.L23+12
+ 391 0062 1B78     	 ldrb r3,[r3]
+ 392 0064 012B     	 cmp r3,#1
+ 393 0066 02D0     	 beq .L19
+ 394 0068 022B     	 cmp r3,#2
+ 395 006a 1BD0     	 beq .L20
+ 396 006c 1EE0     	 b .L18
+ 397              	.L19:
+  55:../main.c     ****     	  {
+  56:../main.c     ****     	    case 1:
+  57:../main.c     **** 
+  58:../main.c     ****     	    	ledMode = 1;
+ 398              	 .loc 3 58 0
+ 399 006e 134B     	 ldr r3,.L23+12
+ 400 0070 0122     	 mov r2,#1
+ 401 0072 1A70     	 strb r2,[r3]
+  59:../main.c     ****     	    	if ((DIGITAL_IO_GetInput(&DIGITAL_IO_0)) == 1)  // pushbutton 1 press
+ 402              	 .loc 3 59 0
+ 403 0074 124B     	 ldr r3,.L23+16
+ 404 0076 181C     	 mov r0,r3
+ 405 0078 FFF7FEFF 	 bl DIGITAL_IO_GetInput
+ 406 007c 031E     	 sub r3,r0,#0
+ 407 007e 012B     	 cmp r3,#1
+ 408 0080 03D1     	 bne .L21
+  60:../main.c     ****     	    	 {
+  61:../main.c     ****     	    	    DIGITAL_IO_ToggleOutput(&DIGITAL_IO_4);
+ 409              	 .loc 3 61 0
+ 410 0082 104B     	 ldr r3,.L23+20
+ 411 0084 181C     	 mov r0,r3
+ 412 0086 FFF7FEFF 	 bl DIGITAL_IO_ToggleOutput
+ 413              	.L21:
+  62:../main.c     ****     	    	 }
+  63:../main.c     ****     	    	if ((DIGITAL_IO_GetInput(&DIGITAL_IO_1)) == 1)  // pushbutton 2 press
+ 414              	 .loc 3 63 0
+ 415 008a 0F4B     	 ldr r3,.L23+24
+ 416 008c 181C     	 mov r0,r3
+ 417 008e FFF7FEFF 	 bl DIGITAL_IO_GetInput
+ 418 0092 031E     	 sub r3,r0,#0
+ 419 0094 012B     	 cmp r3,#1
+ 420 0096 04D1     	 bne .L22
+  64:../main.c     ****     	    	{
+  65:../main.c     ****     	    		DIGITAL_IO_ToggleOutput(&DIGITAL_IO_5);
+ 421              	 .loc 3 65 0
+ 422 0098 0C4B     	 ldr r3,.L23+28
+ 423 009a 181C     	 mov r0,r3
+ 424 009c FFF7FEFF 	 bl DIGITAL_IO_ToggleOutput
+  66:../main.c     ****     	    	}
+  67:../main.c     ****     	      break;
+ 425              	 .loc 3 67 0
+ 426 00a0 04E0     	 b .L18
+ 427              	.L22:
+ 428 00a2 03E0     	 b .L18
+ 429              	.L20:
+  68:../main.c     ****     	    case 2:
+  69:../main.c     ****     	    	ledMode = 2;
+ 430              	 .loc 3 69 0
+ 431 00a4 054B     	 ldr r3,.L23+12
+ 432 00a6 0222     	 mov r2,#2
+ 433 00a8 1A70     	 strb r2,[r3]
+  70:../main.c     ****     	      break;
+ 434              	 .loc 3 70 0
+ 435 00aa C046     	 mov r8,r8
+ 436              	.L18:
+  71:../main.c     **** 
+  72:../main.c     ****     }
+  73:../main.c     **** 
+  74:../main.c     ****     }
+ 437              	 .loc 3 74 0 discriminator 2
+ 438 00ac B5E7     	 b .L13
+ 439              	.L24:
+ 440 00ae C046     	 .align 2
+ 441              	.L23:
+ 442 00b0 00000000 	 .word DIGITAL_IO_2
+ 443 00b4 00000000 	 .word buttonState
+ 444 00b8 3E420F00 	 .word 999998
+ 445 00bc 00000000 	 .word ledMode
+ 446 00c0 00000000 	 .word DIGITAL_IO_0
+ 447 00c4 00000000 	 .word DIGITAL_IO_4
+ 448 00c8 00000000 	 .word DIGITAL_IO_1
+ 449 00cc 00000000 	 .word DIGITAL_IO_5
+ 450              	 .cfi_endproc
+ 451              	.LFE135:
+ 453              	 .section .text.IRQ0_Handler,"ax",%progbits
+ 454              	 .align 2
+ 455              	 .global IRQ0_Handler
+ 456              	 .code 16
+ 457              	 .thumb_func
+ 459              	IRQ0_Handler:
+ 460              	.LFB136:
+  75:../main.c     **** 
+  76:../main.c     ****   }
+  77:../main.c     **** 
+  78:../main.c     **** 
+  79:../main.c     **** void blink_speed(void)
+  80:../main.c     **** 
+  81:../main.c     **** {
+ 461              	 .loc 3 81 0
+ 462              	 .cfi_startproc
+ 463 0000 80B5     	 push {r7,lr}
+ 464              	.LCFI23:
+ 465              	 .cfi_def_cfa_offset 8
+ 466              	 .cfi_offset 7,-8
+ 467              	 .cfi_offset 14,-4
+ 468 0002 00AF     	 add r7,sp,#0
+ 469              	.LCFI24:
+ 470              	 .cfi_def_cfa_register 7
+  82:../main.c     **** 	if (ledMode == 2)  // to blink the led. speed determined by the timer 1
+ 471              	 .loc 3 82 0
+ 472 0004 1F4B     	 ldr r3,.L32
+ 473 0006 1B78     	 ldrb r3,[r3]
+ 474 0008 022B     	 cmp r3,#2
+ 475 000a 39D1     	 bne .L25
+  83:../main.c     **** 	{
+  84:../main.c     **** 	if (DIGITAL_IO_GetInput(&DIGITAL_IO_0) == 1) // pushbutton 1 press
+ 476              	 .loc 3 84 0
+ 477 000c 1E4B     	 ldr r3,.L32+4
+ 478 000e 181C     	 mov r0,r3
+ 479 0010 FFF7FEFF 	 bl DIGITAL_IO_GetInput
+ 480 0014 031E     	 sub r3,r0,#0
+ 481 0016 012B     	 cmp r3,#1
+ 482 0018 05D1     	 bne .L27
+  85:../main.c     **** 	   {
+  86:../main.c     **** 		 count++;
+ 483              	 .loc 3 86 0
+ 484 001a 1C4B     	 ldr r3,.L32+8
+ 485 001c 1B78     	 ldrb r3,[r3]
+ 486 001e 0133     	 add r3,r3,#1
+ 487 0020 DAB2     	 uxtb r2,r3
+ 488 0022 1A4B     	 ldr r3,.L32+8
+ 489 0024 1A70     	 strb r2,[r3]
+ 490              	.L27:
+  87:../main.c     **** 	   }
+  88:../main.c     **** 		 if(count == 1 )
+ 491              	 .loc 3 88 0
+ 492 0026 194B     	 ldr r3,.L32+8
+ 493 0028 1B78     	 ldrb r3,[r3]
+ 494 002a 012B     	 cmp r3,#1
+ 495 002c 04D1     	 bne .L28
+  89:../main.c     **** 		 {
+  90:../main.c     **** 			 DIGITAL_IO_ToggleOutput(&DIGITAL_IO_4);
+ 496              	 .loc 3 90 0
+ 497 002e 184B     	 ldr r3,.L32+12
+ 498 0030 181C     	 mov r0,r3
+ 499 0032 FFF7FEFF 	 bl DIGITAL_IO_ToggleOutput
+ 500 0036 06E0     	 b .L29
+ 501              	.L28:
+  91:../main.c     **** 
+  92:../main.c     **** 		 }
+  93:../main.c     **** 		 else
+  94:../main.c     **** 		 {
+  95:../main.c     **** 			 DIGITAL_IO_SetOutputHigh(&DIGITAL_IO_4);
+ 502              	 .loc 3 95 0
+ 503 0038 154B     	 ldr r3,.L32+12
+ 504 003a 181C     	 mov r0,r3
+ 505 003c FFF7FEFF 	 bl DIGITAL_IO_SetOutputHigh
+  96:../main.c     **** 
+  97:../main.c     **** 			 count=0;
+ 506              	 .loc 3 97 0
+ 507 0040 124B     	 ldr r3,.L32+8
+ 508 0042 0022     	 mov r2,#0
+ 509 0044 1A70     	 strb r2,[r3]
+ 510              	.L29:
+  98:../main.c     **** 		 }
+  99:../main.c     **** 
+ 100:../main.c     **** 
+ 101:../main.c     **** 	 if (DIGITAL_IO_GetInput(&DIGITAL_IO_1) == 1)  // pushbutton 2 press
+ 511              	 .loc 3 101 0
+ 512 0046 134B     	 ldr r3,.L32+16
+ 513 0048 181C     	 mov r0,r3
+ 514 004a FFF7FEFF 	 bl DIGITAL_IO_GetInput
+ 515 004e 031E     	 sub r3,r0,#0
+ 516 0050 012B     	 cmp r3,#1
+ 517 0052 05D1     	 bne .L30
+ 102:../main.c     **** 		{
+ 103:../main.c     **** 				 count1++;
+ 518              	 .loc 3 103 0
+ 519 0054 104B     	 ldr r3,.L32+20
+ 520 0056 1B78     	 ldrb r3,[r3]
+ 521 0058 0133     	 add r3,r3,#1
+ 522 005a DAB2     	 uxtb r2,r3
+ 523 005c 0E4B     	 ldr r3,.L32+20
+ 524 005e 1A70     	 strb r2,[r3]
+ 525              	.L30:
+ 104:../main.c     **** 			   }
+ 105:../main.c     **** 				 if(count1 == 1 )
+ 526              	 .loc 3 105 0
+ 527 0060 0D4B     	 ldr r3,.L32+20
+ 528 0062 1B78     	 ldrb r3,[r3]
+ 529 0064 012B     	 cmp r3,#1
+ 530 0066 04D1     	 bne .L31
+ 106:../main.c     **** 				 {
+ 107:../main.c     **** 
+ 108:../main.c     **** 					 DIGITAL_IO_ToggleOutput(&DIGITAL_IO_5);
+ 531              	 .loc 3 108 0
+ 532 0068 0C4B     	 ldr r3,.L32+24
+ 533 006a 181C     	 mov r0,r3
+ 534 006c FFF7FEFF 	 bl DIGITAL_IO_ToggleOutput
+ 535 0070 06E0     	 b .L25
+ 536              	.L31:
+ 109:../main.c     **** 				 }
+ 110:../main.c     **** 				 else
+ 111:../main.c     **** 				 {
+ 112:../main.c     **** 
+ 113:../main.c     **** 					 DIGITAL_IO_SetOutputHigh(&DIGITAL_IO_5);
+ 537              	 .loc 3 113 0
+ 538 0072 0A4B     	 ldr r3,.L32+24
+ 539 0074 181C     	 mov r0,r3
+ 540 0076 FFF7FEFF 	 bl DIGITAL_IO_SetOutputHigh
+ 114:../main.c     **** 					 count1=0;
+ 541              	 .loc 3 114 0
+ 542 007a 074B     	 ldr r3,.L32+20
+ 543 007c 0022     	 mov r2,#0
+ 544 007e 1A70     	 strb r2,[r3]
+ 545              	.L25:
+ 115:../main.c     **** 				 }
+ 116:../main.c     **** 
+ 117:../main.c     **** 	}
+ 118:../main.c     **** 	}
+ 546              	 .loc 3 118 0
+ 547 0080 BD46     	 mov sp,r7
+ 548              	 
+ 549 0082 80BD     	 pop {r7,pc}
+ 550              	.L33:
+ 551              	 .align 2
+ 552              	.L32:
+ 553 0084 00000000 	 .word ledMode
+ 554 0088 00000000 	 .word DIGITAL_IO_0
+ 555 008c 00000000 	 .word count
+ 556 0090 00000000 	 .word DIGITAL_IO_4
+ 557 0094 00000000 	 .word DIGITAL_IO_1
+ 558 0098 00000000 	 .word count1
+ 559 009c 00000000 	 .word DIGITAL_IO_5
+ 560              	 .cfi_endproc
+ 561              	.LFE136:
+ 563              	 .text
+ 564              	.Letext0:
+ 565              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 566              	 .file 5 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 567              	 .file 6 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/XMCLib/inc/xmc1_gpio.h"
+ 568              	 .file 7 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DAVE.h"
+ 569              	 .file 8 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/CMSIS/Include/cmsis_gcc.h"
+ 570              	 .file 9 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Libraries/CMSIS/Infineon/XMC1400_series/Include/system_XMC1400.h"
+ 571              	 .file 10 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/button_using_switch/Dave/Generated/DIGITAL_IO/digital_io_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+    {standard input}:18     .text.XMC_GPIO_SetOutputHigh:00000000 $t
+    {standard input}:22     .text.XMC_GPIO_SetOutputHigh:00000000 XMC_GPIO_SetOutputHigh
+    {standard input}:58     .text.XMC_GPIO_ToggleOutput:00000000 $t
+    {standard input}:62     .text.XMC_GPIO_ToggleOutput:00000000 XMC_GPIO_ToggleOutput
+    {standard input}:96     .text.XMC_GPIO_ToggleOutput:00000020 $d
+    {standard input}:101    .text.XMC_GPIO_GetInput:00000000 $t
+    {standard input}:105    .text.XMC_GPIO_GetInput:00000000 XMC_GPIO_GetInput
+    {standard input}:143    .text.DIGITAL_IO_SetOutputHigh:00000000 $t
+    {standard input}:147    .text.DIGITAL_IO_SetOutputHigh:00000000 DIGITAL_IO_SetOutputHigh
+    {standard input}:181    .text.DIGITAL_IO_ToggleOutput:00000000 $t
+    {standard input}:185    .text.DIGITAL_IO_ToggleOutput:00000000 DIGITAL_IO_ToggleOutput
+    {standard input}:218    .text.DIGITAL_IO_GetInput:00000000 $t
+    {standard input}:222    .text.DIGITAL_IO_GetInput:00000000 DIGITAL_IO_GetInput
+    {standard input}:260    .bss.ledMode:00000000 ledMode
+    {standard input}:261    .bss.ledMode:00000000 $d
+    {standard input}:266    .bss.buttonState:00000000 buttonState
+    {standard input}:267    .bss.buttonState:00000000 $d
+    {standard input}:272    .bss.count:00000000 count
+    {standard input}:273    .bss.count:00000000 $d
+    {standard input}:278    .bss.count1:00000000 count1
+    {standard input}:279    .bss.count1:00000000 $d
+    {standard input}:281    .text.changeLEDMode:00000000 $t
+    {standard input}:286    .text.changeLEDMode:00000000 changeLEDMode
+    {standard input}:307    .text.main:00000000 $t
+    {standard input}:312    .text.main:00000000 main
+    {standard input}:442    .text.main:000000b0 $d
+    {standard input}:454    .text.IRQ0_Handler:00000000 $t
+    {standard input}:459    .text.IRQ0_Handler:00000000 IRQ0_Handler
+    {standard input}:553    .text.IRQ0_Handler:00000084 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+DAVE_Init
+DIGITAL_IO_2
+DIGITAL_IO_0
+DIGITAL_IO_4
+DIGITAL_IO_1
+DIGITAL_IO_5
